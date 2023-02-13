@@ -1,0 +1,29 @@
+import { useEffect, useState } from 'react';
+
+export const week = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+];
+
+export default function TimeAndDate() {
+  const [date, setDate] = useState(new Date());
+
+  useEffect(() => {
+    setInterval(() => setDate(new Date()), 1000);
+  }, []);
+
+  const dayOfWeek = date?.getDay();
+  const time = `${date?.getHours()}:${date?.getMinutes()}`;
+  return (
+    <div className="todaySidebar-timeAndDate">
+      <p>
+        {week[dayOfWeek]}, <span className='timeAndDate-time'>{time}</span>
+      </p>
+    </div>
+  );
+}

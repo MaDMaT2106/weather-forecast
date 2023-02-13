@@ -1,0 +1,48 @@
+.todaysHighlights {
+  width: 100%;
+
+  &.container {
+    padding: 40px;
+  }
+
+  .highlightBlocks {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &.container {
+      padding: 30px;
+    }
+    .highlightBlock {
+      width: 24%;
+      height: 30vh;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      background-color: #ffff;
+      border-radius: 25px;
+      box-shadow: 3px 3px 10px #c4c5c8;
+
+      .highlightBlock-title {
+        margin-bottom: 15px;
+        font-weight: 700;
+        font-size: 16px;
+        color: #dddddd;
+      }
+      .highlightBlock-content {
+        font-size: 30px;
+      }
+      .sunriseAndSunset {
+        display: flex;
+        flex-direction: column;
+        div {
+          display: flex;
+          align-items: center;
+          gap: 3px;
+        }
+      }
+    }
+  }
+}
