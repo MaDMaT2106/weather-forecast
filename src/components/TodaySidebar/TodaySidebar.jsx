@@ -15,6 +15,7 @@ function TodaySidebar() {
       <h1>Weather Forecast</h1>
       <TodaysImage weatherId={weatherId} />
       <h2>{temperature ? temperature : ''} &#8451;</h2>
+      
       <TimeAndDate />
       <div className="todaySidebar-description">
         <p>{weatherDescription}</p>
