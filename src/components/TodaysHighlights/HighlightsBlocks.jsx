@@ -7,6 +7,7 @@ export default function HighlightsBlocks() {
   const forecast = useSelector((state) => state.forecast.forecast);
   const date = new Date();
 
+  const visibility = forecast?.current?.visibility;
   function getTimeFrom(arg) {
     const time = new Date(arg * 1000);
     return `${time.getHours()}:${time.getMinutes()}`;
@@ -21,7 +22,9 @@ export default function HighlightsBlocks() {
       />
       <Block
         title={'Visibility'}
-        content={`${forecast?.current?.visibility} m`}
+        content={
+          visibility > 1000 ? visibility / 1000 + ' km' : visibility + ' m'
+        }
       />
       <Block
         title={'Sunrise & Sunset'}

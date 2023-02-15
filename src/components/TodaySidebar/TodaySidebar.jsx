@@ -1,11 +1,14 @@
 import { useSelector } from 'react-redux';
-import './TodaySidebar.scss';
 
 import TimeAndDate from './TimeAndDate';
 import TodaysImage from './TodaysImage';
 
+import './TodaySidebar.scss';
+
 function TodaySidebar() {
   const forecast = useSelector((state) => state.forecast.forecast);
+  const geolocation = useSelector((state) => state.forecast?.geolocation);
+
   const weatherId = forecast.current?.weather[0].id;
   const temperature = Math.round(forecast.current?.temp);
   const weatherDescription = forecast.current?.weather[0].description;
@@ -14,11 +17,16 @@ function TodaySidebar() {
     <div className="todaySidebar">
       <h1>Weather Forecast</h1>
       <TodaysImage weatherId={weatherId} />
-      <h2>{temperature ? temperature : ''} &#8451;</h2>
-      
-      <TimeAndDate />
-      <div className="todaySidebar-description">
-        <p>{weatherDescription}</p>
+      <div className="todaySidebar-tempAndDesc">
+        <span className="todaySidebar-temp">{temperature ? temperature : ''} &#8451;</span>
+        <span className="todaySidebar-desc">, {weatherDescription}</span>
+      </div>
+
+      <div className="todaySidebar-locationAndTime">
+        <TimeAndDate />
+        <p>
+          {geolocation.country}, {geolocation.region}
+        </p>
       </div>
     </div>
   );
