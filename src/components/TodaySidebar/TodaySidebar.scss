@@ -7,13 +7,26 @@
   background: #6cc7cc;
   color: #fff;
   gap: 40px;
-  img{
+  font-size: 20px;
+  h1{
+    font-size: 35px;
+  }
+  img {
     width: 100%;
     overflow: hidden;
   }
-  .todaySidebar-timeAndDate{
-    .timeAndDate-time{
-      color: #dddddd;
+  .todaySidebar-tempAndDesc {
+    .todaySidebar-temp {
+      font-weight: 700;
+      font-size: 25px;
+    }
+  }
+  .todaySidebar-locationAndTime {
+    text-align: center;
+    .todaySidebar-timeAndDate {
+      .timeAndDate-time {
+        color: #dddddd;
+      }
     }
   }
 }

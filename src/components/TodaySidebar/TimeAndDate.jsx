@@ -18,7 +18,7 @@ export default function TimeAndDate() {
   }, []);
 
   const dayOfWeek = date?.getDay();
-  const time = `${date?.getHours()}:${date?.getMinutes()}`;
+  const time = `${date?.getHours()}:${date?.getMinutes()<10?'0'+date?.getMinutes():date?.getMinutes()}`;
   return (
     <div className="todaySidebar-timeAndDate">
       <p>

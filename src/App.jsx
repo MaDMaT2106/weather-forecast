@@ -14,7 +14,7 @@ import './App.css';
 
 function App() {
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState('true');
+  const [loading, setLoading] = useState(true);
   async function asyncGetLocation() {
     await getBrowserLocation()
       .then((curLoc) => {
@@ -43,7 +43,7 @@ function App() {
   return (
     <div className="App">
       <WeatherForecast />
-      <Dots customLoading={loading} time={1000} background="#f6f6f8"/>
+      <Dots customLoading={loading} time={1000} background="#f6f6f8" />
     </div>
   );
 }
