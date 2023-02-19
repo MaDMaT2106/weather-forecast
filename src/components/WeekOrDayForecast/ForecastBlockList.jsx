@@ -19,13 +19,20 @@ export default function ForecastBlockList() {
   }));
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 7,
     slidesToScroll: 7,
     swipe: true,
     responsive: [
+      {
+        breakpoint: 355,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
       {
         breakpoint: 480,
         settings: {
