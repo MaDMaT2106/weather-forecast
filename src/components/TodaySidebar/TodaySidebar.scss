@@ -8,7 +8,7 @@
   color: #fff;
   gap: 40px;
   font-size: 20px;
-  h1{
+  h1 {
     font-size: 35px;
   }
   img {
@@ -28,5 +28,17 @@
         color: #dddddd;
       }
     }
+  }
+}
+
+@media (max-width: 1124px) {
+  .todaySidebar {
+    width: 100%;
+  }
+}
+
+@media (max-width: 667px) {
+  .todaySidebar {
+    width: 100%;
   }
 }

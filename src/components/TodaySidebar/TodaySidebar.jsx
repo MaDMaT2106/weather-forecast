@@ -14,7 +14,7 @@ function TodaySidebar() {
   const weatherDescription = forecast.current?.weather[0].description;
 
   return (
-    <div className="todaySidebar">
+    <div className="todaySidebar container">
       <h1>Weather Forecast</h1>
       <TodaysImage weatherId={weatherId} />
       <div className="todaySidebar-tempAndDesc">

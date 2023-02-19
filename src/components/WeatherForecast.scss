@@ -1,17 +1,38 @@
 .container {
+  max-width: 100vw;
   padding: 15px;
 }
+
 .weatherForecast {
   display: flex;
   width: 100%;
   height: 100vh;
 
   .mainPart {
-    background-color: #f6f6f8;
     width: 75%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+}
+
+@media (max-width: 1124px) {
+  .weatherForecast {
+    flex-direction: column;
+    .mainPart {
+      width: 100%;
+    }
+  }
+}
+
+
+@media (max-width: 667px) {
+  .weatherForecast {
+    flex-direction: column;
+
+    .mainPart {
+      width: 100%;
+    }
   }
 }

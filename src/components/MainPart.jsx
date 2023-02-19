@@ -4,7 +4,7 @@ import TodaysHighlights from './TodaysHighlights/TodaysHighlights';
 
 export default function MainPart() {
   return (
-    <div className="mainPart">
+    <div className="mainPart container">
       <WeekOrDayForecast />
       <TodaysHighlights/>
     </div>
