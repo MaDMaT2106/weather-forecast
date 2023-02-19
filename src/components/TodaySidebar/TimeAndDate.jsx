@@ -18,11 +18,13 @@ export default function TimeAndDate() {
   }, []);
 
   const dayOfWeek = date?.getDay();
-  const time = `${date?.getHours()}:${date?.getMinutes()<10?'0'+date?.getMinutes():date?.getMinutes()}`;
+  const time = `${
+    date?.getHours() < 10 ? '0' + date?.getHours() : date?.getHours()
+  }:${date?.getMinutes() < 10 ? '0' + date?.getMinutes() : date?.getMinutes()}`;
   return (
     <div className="todaySidebar-timeAndDate">
       <p>
-        {week[dayOfWeek]}, <span className='timeAndDate-time'>{time}</span>
+        {week[dayOfWeek]}, <span className="timeAndDate-time">{time}</span>
       </p>
     </div>
   );

@@ -10,7 +10,11 @@ export default function HighlightsBlocks() {
   const visibility = forecast?.current?.visibility;
   function getTimeFrom(arg) {
     const time = new Date(arg * 1000);
-    return `${time.getHours()}:${time.getMinutes()}`;
+    return `${
+      time?.getHours() < 10 ? '0' + time?.getHours() : time?.getHours()
+    }:${
+      time?.getMinutes() < 10 ? '0' + time?.getMinutes() : time?.getMinutes()
+    }`;
   }
 
   return (
