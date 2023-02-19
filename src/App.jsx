@@ -5,7 +5,7 @@ import { Dots } from 'react-preloaders';
 import {
   addCoordinates,
   fetchForecast,
-  fetchGeolocation,
+  fetchReverseGeocoding,
 } from './store/forecastSlice.js';
 import getBrowserLocation from './functions/geolocation.js';
 
@@ -15,6 +15,7 @@ import './App.css';
 function App() {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
+ 
   async function asyncGetLocation() {
     await getBrowserLocation()
       .then((curLoc) => {
@@ -27,7 +28,7 @@ function App() {
   }
   function dispatchFetch() {
     dispatch(fetchForecast());
-    dispatch(fetchGeolocation());
+    dispatch(fetchReverseGeocoding());
     setLoading(false);
   }
 

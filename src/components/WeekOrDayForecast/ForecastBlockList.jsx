@@ -25,7 +25,6 @@ export default function ForecastBlockList() {
     slidesToShow: 7,
     slidesToScroll: 7,
     swipe: true,
-    initialSlide: 0,
     responsive: [
       {
         breakpoint: 480,
@@ -74,7 +73,7 @@ export default function ForecastBlockList() {
 
   return (
     <div>
-      <Slider {...settings} className="forecastList">
+      <Slider {...settings} className="forecastList container">
         {dailyForecast?.slice(1).map((day) => {
           return <DayOfWeekBlock dayInfo={day} key={Math.random() * 100} />;
         })}
