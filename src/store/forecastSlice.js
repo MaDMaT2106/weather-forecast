@@ -6,15 +6,6 @@ const coords = {
   lng: 28.1085937,
 };
 
-// export const fetchFunction = createAsyncThunk(
-//   'forecast/fetchFunction',
-//   async function(payload, {getState}){
-//     const state = getState();
-//     const coords = state.forecast.coordinates;
-//     let link = `${}?`
-//   }
-// )
-
 export const fetchForecast = createAsyncThunk(
   'forecast/fetchForecast',
   async function (_, { getState }) {
