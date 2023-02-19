@@ -1,11 +1,19 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 const FORECAST_API_KEY = import.meta.env.VITE_FORECAST_API_KEY;
-const GEOLOCATION_API_KEY = import.meta.env.VITE_MAP_TOKEN;
 
 const coords = {
   lat: 49.0390512,
   lng: 28.1085937,
 };
+
+// export const fetchFunction = createAsyncThunk(
+//   'forecast/fetchFunction',
+//   async function(payload, {getState}){
+//     const state = getState();
+//     const coords = state.forecast.coordinates;
+//     let link = `${}?`
+//   }
+// )
 
 export const fetchForecast = createAsyncThunk(
   'forecast/fetchForecast',
@@ -18,12 +26,22 @@ export const fetchForecast = createAsyncThunk(
     return data;
   }
 );
-export const fetchGeolocation = createAsyncThunk(
-  'forecast/fetchGeolocation',
+export const fetchReverseGeocoding = createAsyncThunk(
+  'forecast/fetchReverseGeocoding',
   async function (_, { getState }) {
     const state = getState();
     const coords = state.forecast.coordinates;
-    const link = `https://api.mapbox.com/geocoding/v5/mapbox.places/${coords.lng},${coords.lat}.json?types=poi&access_token=${GEOLOCATION_API_KEY}`;
+    const link = `http://api.openweathermap.org/geo/1.0/reverse?lat=${coords.lat}&lon=${coords.lng}&appid=${FORECAST_API_KEY}`;
+    const response = await fetch(link);
+    const data = await response.json();
+    return data;
+  }
+);
+export const fetchGeocoding = createAsyncThunk(
+  'forecast/fetchGeocoding',
+  async function (payload) {
+    console.log(payload);
+    let link = `http://api.openweathermap.org/geo/1.0/direct?q=${payload}&limit=1&appid=${FORECAST_API_KEY}`;
     const response = await fetch(link);
     const data = await response.json();
     return data;
@@ -46,10 +64,14 @@ const forecastSlice = createSlice({
     forecast.addCase(fetchForecast.fulfilled, (state, action) => {
       state.forecast = action.payload;
     });
-    forecast.addCase(fetchGeolocation.fulfilled, (state, action) => {
-      state.geolocation = {
-        ...{country: action.payload.features[0].context[3].text,
-        region:action.payload.features[0].context[2].text }
+    forecast.addCase(fetchReverseGeocoding.fulfilled, (state, action) => {
+      state.geolocation = action.payload;
+    });
+    forecast.addCase(fetchGeocoding.fulfilled, (state, action) => {
+      state.geolocation = action.payload;
+      state.coordinates = {
+        lat: action.payload[0].lat,
+        lng: action.payload[0].lon,
       };
     });
   },

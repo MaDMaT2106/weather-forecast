@@ -74,15 +74,8 @@ export const weatherType = [
     name: 'Clear',
     gte: 800,
     lte: 800,
-    image: Images.sunny,
-    imageNight: Images.sunnyNight,
-  },
-  {
-    name: 'Clear',
-    gte: 800,
-    lte: 800,
-    image: Images.sunny,
-    imageNight: Images.sunnyNight,
+    image: Images.clearSky,
+    imageNight: Images.clearSkyNight,
   },
   {
     name: 'Few clouds',
