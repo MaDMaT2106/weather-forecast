@@ -6,15 +6,6 @@ const coords = {
   lng: 28.1085937,
 };
 
-// export const fetchFunction = createAsyncThunk(
-//   'forecast/fetchFunction',
-//   async function(payload, {getState}){
-//     const state = getState();
-//     const coords = state.forecast.coordinates;
-//     let link = `${}?`
-//   }
-// )
-
 export const fetchForecast = createAsyncThunk(
   'forecast/fetchForecast',
   async function (_, { getState }) {
@@ -31,7 +22,7 @@ export const fetchReverseGeocoding = createAsyncThunk(
   async function (_, { getState }) {
     const state = getState();
     const coords = state.forecast.coordinates;
-    const link = `http://api.openweathermap.org/geo/1.0/reverse?lat=${coords.lat}&lon=${coords.lng}&appid=${FORECAST_API_KEY}`;
+    const link = `https://api.openweathermap.org/geo/1.0/reverse?lat=${coords.lat}&lon=${coords.lng}&appid=${FORECAST_API_KEY}`;
     const response = await fetch(link);
     const data = await response.json();
     return data;
@@ -40,8 +31,7 @@ export const fetchReverseGeocoding = createAsyncThunk(
 export const fetchGeocoding = createAsyncThunk(
   'forecast/fetchGeocoding',
   async function (payload) {
-    console.log(payload);
-    let link = `http://api.openweathermap.org/geo/1.0/direct?q=${payload}&limit=1&appid=${FORECAST_API_KEY}`;
+    let link = `https://api.openweathermap.org/geo/1.0/direct?q=${payload}&limit=1&appid=${FORECAST_API_KEY}`;
     const response = await fetch(link);
     const data = await response.json();
     return data;
