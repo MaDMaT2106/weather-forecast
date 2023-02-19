@@ -31,7 +31,6 @@ export const fetchReverseGeocoding = createAsyncThunk(
 export const fetchGeocoding = createAsyncThunk(
   'forecast/fetchGeocoding',
   async function (payload) {
-    console.log(payload);
     let link = `https://api.openweathermap.org/geo/1.0/direct?q=${payload}&limit=1&appid=${FORECAST_API_KEY}`;
     const response = await fetch(link);
     const data = await response.json();
