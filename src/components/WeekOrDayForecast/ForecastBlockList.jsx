@@ -27,6 +27,13 @@ export default function ForecastBlockList() {
     swipe: true,
     responsive: [
       {
+        breakpoint: 355,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
         breakpoint: 480,
         settings: {
           slidesToShow: 2,
