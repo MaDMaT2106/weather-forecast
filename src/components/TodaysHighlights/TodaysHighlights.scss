@@ -94,8 +94,21 @@
     .highlightBlocks {
       grid-template-columns: 1fr;
       justify-items: center;
+
       .highlightBlock {
         width: 60vw;
+        height: 20vh;
+      }
+    }
+  }
+}
+@media (max-height: 800px) and (max-width: 1260px) {
+  .todaysHighlights {
+    .highlightBlocks {
+      .highlightBlock {
+        .sunriseAndSunset {
+          flex-direction: row;
+        }
       }
     }
   }

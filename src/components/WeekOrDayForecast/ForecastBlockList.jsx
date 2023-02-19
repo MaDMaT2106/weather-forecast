@@ -20,11 +20,12 @@ export default function ForecastBlockList() {
 
   const settings = {
     dots: true,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 7,
     slidesToScroll: 7,
     swipe: true,
+    initialSlide: 0,
     responsive: [
       {
         breakpoint: 480,
